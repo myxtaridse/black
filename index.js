@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import multer from "multer";
 import cors from "cors";
+import fs from "fs";
 
 import {
   registerValidator,
@@ -30,6 +31,9 @@ const storage = multer.diskStorage({
   //путь куда будем сохранять все картинки
   destination: (_, __, cb) => {
     // не получает ошибок и сохраняет все картинки в папку uploads -> функция объясняет какой путь необходимо использовать
+    if (!fs.existsSync("uploads")) {
+      fs.mkdirSync("uploads");
+    }
     cb(null, "uploads");
   },
   filename: (_, file, cb) => {
