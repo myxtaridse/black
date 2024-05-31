@@ -277,6 +277,29 @@ export const getUser = async (req, res) => {
   }
 };
 
+export const getUserAll = async (req, res) => {
+  try {
+    // найти инфу об айди
+    const users = await UserModel.find().exec();
+    res.json(users);
+
+    // const userId = req.params.id;
+    // const user = await UserModel.findById(userId);
+    // if (!user) {
+    //   return res.status(404).json({
+    //     message: "Пользователь не найден",
+    //   });
+    // }
+    // const { passwordHash, ...userData } = user._doc;
+    // return res.json(userData);
+  } catch (err) {
+    console.log("err", err);
+    res.status(505).json({
+      message: "Произошла ошибка",
+    });
+  }
+};
+
 export default {
   register,
   login,
@@ -284,4 +307,5 @@ export default {
   changeMyAcc,
   getUser,
   subscribersUser,
+  getUserAll,
 };

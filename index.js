@@ -109,6 +109,8 @@ app.get("/auth/me", checkAuth, UserController.getMe);
 
 app.get("/user/:id", checkAuth, UserController.getUser);
 
+app.get("/users", checkAuth, UserController.getUserAll);
+
 app.post("/upload", upload.single("image"), (req, res) => {
   // вернет картинку по сохраненному пути
   return res.json({
@@ -148,15 +150,6 @@ app.patch(
   handleValidationErrors,
   UserController.subscribersUser
 );
-
-// app.get("/posts/message", MessageController.getAll);
-// app.get("/message/:id", MessageController.getOne);
-// app.post(
-//   "/posts/:id/message/create",
-//   checkAuth,
-//   handleValidationErrors,
-//   MessageController.create
-// );
 
 app.listen(process.env.PORT || 4444, (err) => {
   if (err) {
