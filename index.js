@@ -132,6 +132,7 @@ app.post(
   PostControler.create
 );
 app.delete("/posts/:id", checkAuth, PostControler.remove);
+
 app.patch(
   "/posts/:id",
   checkAuth,

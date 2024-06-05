@@ -118,65 +118,6 @@ export const register = async (req, res) => {
   }
 };
 
-// export const changeMyAcc = async (req, res) => {
-//   try {
-//     // найти инфу об айди
-//     const user = await UserModel.findById(req.userId);
-//     if (!user) {
-//       return res.status(404).json({
-//         message: "Пользователь не найден",
-//       });
-//     } else {
-//       await UserModel.updateOne(
-//         { _id: user },
-//         {
-//           email: req.body.email,
-//           firstName: req.body.firstName,
-//           lastName: req.body.lastName,
-//           avatarUrl: req.body.avatarUrl,
-//           passwordHash: req.body.password,
-//           nickname: req.body.nickname,
-//           posts: req.body.posts,
-//           url: req.body.url,
-//           subscribers: req.body.subscribers,
-//           subscribed: req.body.subscribed,
-//           description: req.body.description,
-//         }
-//       );
-//       res.json({
-//         success: true,
-//       });
-//       console.log("123");
-//     }
-//     // const { passwordHash, ...userData } = user._doc;
-//     // return res.json(userData);
-//   } catch (err) {
-//     console.log("err", err);
-//     res.status(505).json({
-//       message: "Произошла ошибка",
-//     });
-//   }
-// };
-
-// export const getMe = async (req, res) => {
-//   try {
-//     // найти инфу об айди
-//     const user = await UserModel.findById(req.userId);
-//     if (!user) {
-//       return res.status(404).json({
-//         message: "Пользователь не найден",
-//       });
-//     }
-//     const { passwordHash, ...userData } = user._doc;
-//     return res.json(userData);
-//   } catch (err) {
-//     console.log("err", err);
-//     // res.status(505).json({
-//     //   message: "Произошла ошибка",
-//     // });
-//   }
-// };
-
 export const changeMyAcc = async (req, res) => {
   try {
     // найти инфу об айди

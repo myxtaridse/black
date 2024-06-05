@@ -29,22 +29,6 @@ export const getAll = async (req, res) => {
   }
 };
 
-// export const getPostsByUser = async (req, res) => {
-//   try {
-//     const userId = req.params.user._id;
-//     const posts = await PostModel.find({
-//       path: "user",
-//       select: "id" === userId,
-//     }).exec();
-//     res.json(posts);
-//   } catch (err) {
-//     console.log("err");
-//     res.status(500).json({
-//       message: "Не удалось получить статьи :(",
-//     });
-//   }
-// };
-
 export const getTags = async (req, res) => {
   try {
     const posts = await PostModel.find().limit(30).exec();
@@ -126,30 +110,6 @@ export const update = async (req, res) => {
     });
   }
 };
-
-// export const createComment = async (req, res) => {
-//   //получение всех статей
-//   try {
-//     //необходимо знать айди статьи
-//     const postId = req.params.id;
-
-//     await PostModel.updateOne(
-//       { _id: postId },
-//       {
-//         user: req.userId,
-//         comments: req.body.comments,
-//       }
-//     );
-//     res.json({
-//       success: true,
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     return res.status(500).json({
-//       message: "Не удалось обновить статьи :(",
-//     });
-//   }
-// };
 
 export const remove = async (req, res) => {
   //получение всех статей
